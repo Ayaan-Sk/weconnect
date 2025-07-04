@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { fadeIn} from "../utils/motion";
 
@@ -13,6 +14,7 @@ const Navbar = () => {
     { href: "#services", label: "Alumni" },
     { href: "#testimonials", label: "Colleges" },
   ]
+  const navigate = useNavigate();
 
   return (
     <motion.nav 
@@ -70,14 +72,15 @@ const Navbar = () => {
         </motion.div>
 
         {/* CTA Button */}
-        <motion.button 
+        <motion.div 
           variants={fadeIn('left', 0.3)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
+           onClick={() => navigate('/login')}
         >
-          <a href="#newsletter">Sign In</a>
-        </motion.button>
+ Sign In
+ </motion.div>
       </div>
 
       {/* Mobile Menu */}

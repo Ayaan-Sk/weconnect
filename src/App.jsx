@@ -7,6 +7,10 @@ import FeaturesSection from './components/FeaturesSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import NewsletterSection from './components/NewsletterSection'
 import Footer from './components/Footer'
+import LoginPage from './components/LoginPage'
+import SignupPage from './components/SignupPage'
+
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
@@ -14,13 +18,21 @@ function App() {
       <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
       <div className="overflow-hidden">
         <Navbar />
-        <Hero />
-        <CompanyLogo />
-        <PurposeSection />
-        <FeaturesSection />
-        <TestimonialsSection />
-        <NewsletterSection />
-        <Footer />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <CompanyLogo />
+              <PurposeSection />
+              <FeaturesSection />
+              <TestimonialsSection />
+              <NewsletterSection />
+              <Footer />
+            </>
+          } />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Routes>
       </div>
     </main>
   )
